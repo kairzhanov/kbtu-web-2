@@ -1,0 +1,21 @@
+<a routerLink="../post">To Post</a>
+<ui-text-input
+  [label]="'Поиск'"
+  [control]="searchFormControl"
+  [type]="'text'"
+></ui-text-input>
+<div class="grid grid-cols-5 gap-10 px-10 mt-10">
+  <ui-card *ngFor="let item of getItems()">
+    <ng-container header>
+      <span>{{ item.Name }}</span>
+    </ng-container>
+    <ng-container body>
+      <span>{{ item.Description }}</span>
+      <img [src]="item.Image" alt="image">
+    </ng-container>
+    <ng-container footer>
+      <hero-icon class="like" name="thumb-up" type="outline" class="w-6 h-6"></hero-icon>
+      <hero-icon class="share" name="share" type="outline" class="w-6 h-6"></hero-icon>
+    </ng-container>
+  </ui-card>
+</div>

@@ -1,0 +1,31 @@
+<div class="wrapper">
+    <div class="
+    block
+    text-sm text-left text-gray-600
+    bg-gray-500 bg-opacity-10
+    border border-gray-400
+    flex
+    items-center
+    p-4
+    rounded-md
+    w-full
+  ">
+        <div class='w-full'>
+            <div class='w-full'>
+                <div class='text-center text-black uppercase text-lg font-bold'>
+                    {{ title }}
+                </div>
+            </div>
+            <div class="mb-2 text-center w-full">
+                <ng-container *ngFor="let item of items; let indx = index">
+                    <span [ngClass]="indx != items.length - 1 ? 'cursor-pointer' : ''" (click)="itemClick(indx)">
+                        {{ item.Name }}
+                    </span>
+                    <span *ngIf="indx != items.length - 1 && indx != 0" >
+                        >
+                    </span>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+</div>

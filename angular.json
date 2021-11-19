@@ -1,0 +1,306 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "applications",
+  "projects": {
+    "visitcard": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "applications/visitcard",
+      "sourceRoot": "applications/visitcard/src",
+      "prefix": "vc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/visitcard",
+            "index": "applications/visitcard/src/index.html",
+            "main": "applications/visitcard/src/main.ts",
+            "polyfills": "applications/visitcard/src/polyfills.ts",
+            "tsConfig": "applications/visitcard/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "applications/visitcard/src/favicon.ico",
+              "applications/visitcard/src/assets"
+            ],
+            "styles": ["applications/visitcard/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "applications/visitcard/src/environments/environment.ts",
+                  "with": "applications/visitcard/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "visitcard:build:production"
+            },
+            "development": {
+              "browserTarget": "visitcard:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "visitcard:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "applications/visitcard/src/test.ts",
+            "polyfills": "applications/visitcard/src/polyfills.ts",
+            "tsConfig": "applications/visitcard/tsconfig.spec.json",
+            "karmaConfig": "applications/visitcard/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "applications/visitcard/src/favicon.ico",
+              "applications/visitcard/src/assets"
+            ],
+            "styles": ["applications/visitcard/src/styles.scss"],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "ui": {
+      "projectType": "library",
+      "root": "libraries/ui",
+      "sourceRoot": "libraries/ui/src",
+      "prefix": "ui",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "libraries/ui/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "libraries/ui/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "libraries/ui/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libraries/ui/src/test.ts",
+            "tsConfig": "libraries/ui/tsconfig.spec.json",
+            "karmaConfig": "libraries/ui/karma.conf.js"
+          }
+        }
+      }
+    },
+    "healthcare": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss",
+          "skipTests": true
+        },
+        "@schematics/angular:class": {
+          "skipTests": true
+        },
+        "@schematics/angular:directive": {
+          "skipTests": true
+        },
+        "@schematics/angular:guard": {
+          "skipTests": true
+        },
+        "@schematics/angular:interceptor": {
+          "skipTests": true
+        },
+        "@schematics/angular:pipe": {
+          "skipTests": true
+        },
+        "@schematics/angular:service": {
+          "skipTests": true
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "applications/healthcare",
+      "sourceRoot": "applications/healthcare/src",
+      "prefix": "hc",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/healthcare",
+            "index": "applications/healthcare/src/index.html",
+            "main": "applications/healthcare/src/main.ts",
+            "polyfills": "applications/healthcare/src/polyfills.ts",
+            "tsConfig": "applications/healthcare/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "applications/healthcare/src/favicon.ico",
+              "applications/healthcare/src/assets"
+            ],
+            "styles": [
+              "applications/healthcare/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "applications/healthcare/src/environments/environment.ts",
+                  "with": "applications/healthcare/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "healthcare:build:production"
+            },
+            "development": {
+              "browserTarget": "healthcare:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "healthcare:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "applications/healthcare/src/test.ts",
+            "polyfills": "applications/healthcare/src/polyfills.ts",
+            "tsConfig": "applications/healthcare/tsconfig.spec.json",
+            "karmaConfig": "applications/healthcare/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "applications/healthcare/src/favicon.ico",
+              "applications/healthcare/src/assets"
+            ],
+            "styles": [
+              "applications/healthcare/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "lecture1"
+}
